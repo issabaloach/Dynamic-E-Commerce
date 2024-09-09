@@ -4,11 +4,11 @@ function CategoryChip({ category, isChosen, onClick }) {
       <div
         onClick={onClick}
         className={`${
-          isChosen ? "bg-purple-400 text-white" : "bg-white text-black"
+          isChosen ? "bg-blue-400 text-white" : "bg-white text-black"
         } p-2 
           cursor-pointer
-          hover:bg-purple-100
-          border-purple-400 border px-4 rounded-md`}
+          hover:bg-blue-100
+          border-blue-400 border px-4 rounded-full`}
       >
         <h1>{name}</h1>
       </div>

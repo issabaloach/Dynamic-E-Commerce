@@ -26,9 +26,9 @@ function ProductDetail() {
   return (
     <div className="container mx-auto">
       {loading ? (
-        <h1 className="text-center text-3xl">Loading....</h1>
+        <h1 className="text-center text-2xl">Loading....</h1>
       ) : notFound ? (
-        <h1 className="text-center text-3xl">Product Not Found</h1>
+        <h1 className="text-center text-2xl">Product Not Found</h1>
       ) : (
         <section className="text-gray-600 body-font overflow-hidden">
           <div className="container px-5 py-24 mx-auto">

@@ -42,7 +42,7 @@ function Products() {
   return (
     <div className="container mx-auto">
       {loading ? (
-        <h1 className="text-center text-3xl">Loading....</h1>
+        <h1 className="text-center text-2xl">Loading....</h1>
       ) : (
         <div>
           <div className="flex gap-3 flex-wrap">
