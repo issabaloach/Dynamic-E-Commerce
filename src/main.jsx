@@ -4,11 +4,14 @@ import App from "./App.jsx";
 import { NextUIProvider } from "@nextui-org/react";
 
 import "./index.css";
+import AuthContextProvider from "./Context/AuthContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <NextUIProvider>
-      <App />
+      <AuthContextProvider>
+       <App/>
+      </AuthContextProvider>
     </NextUIProvider>
   </React.StrictMode>
 );
