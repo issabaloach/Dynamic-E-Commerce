@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import ProductCard from "../Components/ProductCard";
 import CategoryChip from "../Components/CategoryChip";
 import { ThemeContext } from "../Context/ThemeContext";
+import Button from "../Components/Button";
 
 function HomePage() {
     const [products, setProducts] = useState([]);
@@ -68,17 +69,21 @@ function HomePage() {
 
                     {/* Sorting Buttons */}
                     <div className="flex justify-end mb-4">
-                        <button
-                            onClick={() => setSortOrder('lowToHigh')}
-                            className={`rounded-full px-4 py-2 ${sortOrder === 'lowToHigh' ? 'bg-blue-200 ' : 'bg-white'} border border-blue-300 ${theme === 'dark' ? 'bg-white text-black' : 'bg-black text-white'} rounded`}>
-                            Price: Low to High
-                        </button>
-                        <button
-                            onClick={() => setSortOrder('highToLow')}
-                            className={`rounded-full ml-2 px-4 py-2 ${sortOrder === 'highToLow' ? 'bg-blue-200' : 'bg-white'} border border-blue-300 ${theme === 'dark' ? 'bg-white text-black' : 'bg-black text-white'} rounded`}>
-                            Price: High to Low
-                        </button>
-                    </div>
+      <Button
+        label="Price: Low to High"
+        onClick={() => setSortOrder('lowToHigh')}
+        borderColor="border-blue-300"
+        txtColor={theme === 'dark' ? 'text-black' : 'text-black'}
+        className={`ml-2 ${sortOrder === 'lowToHigh' ? 'bg-blue-200' : 'bg-white'} hover:bg-blue-100`}
+      />
+      <Button
+        label="Price: High to Low"
+        onClick={() => setSortOrder('highToLow')}
+        borderColor="border-blue-300"
+        txtColor={theme === 'dark' ? 'text-black' : 'text-black'}
+        className={`ml-2 ${sortOrder === 'highToLow' ? 'bg-blue-200' : 'bg-white'} hover:bg-blue-100`}
+      />
+    </div>
 
                     {/* Products List */}
                     <div className="flex flex-wrap">

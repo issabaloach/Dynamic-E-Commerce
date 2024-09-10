@@ -1,20 +1,16 @@
+import { useContext } from "react";
+import Button from "./Button";
+
 function CategoryChip({ category, isChosen, onClick }) {
-    const { name } = category;
-    return (
-      <div
-        onClick={onClick}
-        className={`${
-          isChosen ? "bg-blue-400 text-white" : "bg-white text-black"
-        } p-2 
-          cursor-pointer
-          hover:bg-blue-100
-          border-blue-400 border px-4 rounded-full`}
-      >
-        <h1>{name}</h1>
-      </div>
-    );
-  }
+  const { name } = category;
+  return (
+    <Button
+      label={name}
+      onClick={onClick}
+      borderColor={isChosen ? "border-black" : "border-blue-400"}
+      txtColor={isChosen ? "text-black" : "text-gray-600"}
+    />
+  );
+}
 
-
-  
-  export default CategoryChip;
+export default CategoryChip;
