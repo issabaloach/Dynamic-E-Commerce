@@ -68,6 +68,7 @@ function Signup() {
               placeholder="Enter Your Username"
             />
             <Input
+              required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
@@ -75,6 +76,7 @@ function Signup() {
               placeholder="Enter Your Email"
             />
             <Input
+              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"

@@ -59,6 +59,7 @@ function Signin() {
         <form onSubmit={handleSignInWithEmailAndPassword}>
           <div className="flex flex-col max-w-xs md:flex-nowrap gap-4">
             <Input
+              required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
@@ -66,6 +67,7 @@ function Signin() {
               placeholder="Enter Your Email"
             />
             <Input
+               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
