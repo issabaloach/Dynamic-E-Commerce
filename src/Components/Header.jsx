@@ -33,7 +33,7 @@ function Header() {
 
   return (
     <header
-      className={`shadow-md ${
+      className={`shadow-full ${
         theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-600"
       }`}
     >
@@ -44,7 +44,7 @@ function Header() {
           </span>
         </Link>
 
-        <nav className="flex items-center space-x-4">
+        <nav className="flex items-center space-x-4 rounded-full">
           <NavLink to="/" label="Home" />
           <NavLink to="/about" label="About" />
           <NavLink to="/contact" label="Contact" />
