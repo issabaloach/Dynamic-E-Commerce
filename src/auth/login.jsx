@@ -58,6 +58,7 @@ function Signin() {
       <div className="mb-2 my-10 flex flex-col items-center justify-center">
         <form onSubmit={handleSignInWithEmailAndPassword}>
           <div className="flex flex-col max-w-xs md:flex-nowrap gap-4">
+            <h1 className="text-center mb-4 text-3xl font-bold">Welcome Back To Shop App</h1>
             <Input
               required
               value={email}
@@ -75,12 +76,13 @@ function Signin() {
               placeholder="Enter your password"
             />
           </div>
-          <Button type="submit" className="my-4" color="primary">
+         
+        </form>
+        <Button type="submit" className="my-5 justify-center" color="primary">
             Sign In
           </Button>
-        </form>
 
-        <h1 className="text-center my-7">Or</h1>
+        <h1 className="text-center my-4">Or</h1>
 
         <Button onClick={handleSignInWithGoogle} color="primary">Sign In with Google</Button>
       </div>

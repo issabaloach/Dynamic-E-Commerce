@@ -60,6 +60,7 @@ function Signup() {
       <div className="mb-2 my-10 flex flex-col items-center justify-center">
         <form onSubmit={handleManualSignup}>
           <div className="flex flex-col max-w-xs md:flex-nowrap gap-4">
+          <h1 className="text-center mb-4 text-3xl font-bold">Sign Up To Shop App</h1>
             <Input
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -84,11 +85,11 @@ function Signup() {
               placeholder="Enter your password"
             />
           </div>
-          <Button type="submit" className="my-4" color="primary">
+  
+        </form>
+        <Button type="submit" className="my-4" color="primary">
             Sign Up
           </Button>
-        </form>
-
         <h1 className="text-center my-7">Or</h1>
 
         <Button onClick={handleSignInWithGoogle} color="primary">Sign Up with Google</Button>
