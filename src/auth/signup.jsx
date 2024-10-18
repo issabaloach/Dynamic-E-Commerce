@@ -1,7 +1,11 @@
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
 import { useState } from "react";
-import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "../utils/utils";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +17,7 @@ function Signup() {
 
   const handleSignInWithGoogle = () => {
     const provider = new GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
 
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -25,8 +29,9 @@ function Signup() {
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
         // ...
-        navigate('/');
-      }).catch((error) => {
+        navigate("/");
+      })
+      .catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -37,30 +42,31 @@ function Signup() {
         // ...
         console.error("Google Sign-in Error:", errorMessage);
       });
-  }
+  };
 
   const handleManualSignup = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-   
         const user = userCredential.user;
-    
-        navigate('/');
+
+        navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.error("Manual Sign-up Error:", errorMessage);
       });
-  }
+  };
 
   return (
     <>
       <div className="mb-2 my-10 flex flex-col items-center justify-center">
         <form onSubmit={handleManualSignup}>
           <div className="flex flex-col max-w-xs md:flex-nowrap gap-4">
-          <h1 className="text-center mb-4 text-3xl font-bold">Sign Up To Shop App</h1>
+            <h1 className="text-center mb-4 text-3xl font-bold">
+              Sign Up To Shop App
+            </h1>
             <Input
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -85,14 +91,16 @@ function Signup() {
               placeholder="Enter your password"
             />
           </div>
-  
         </form>
         <Button type="submit" className="my-4" color="primary">
-            Sign Up
-          </Button>
+          Sign Up
+        </Button>
+
         <h1 className="text-center my-7">Or</h1>
 
-        <Button onClick={handleSignInWithGoogle} color="primary">Sign Up with Google</Button>
+        <Button onClick={handleSignInWithGoogle} color="primary">
+          Sign Up with Google
+        </Button>
       </div>
     </>
   );

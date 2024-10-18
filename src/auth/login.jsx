@@ -1,6 +1,10 @@
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
-import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../utils/utils";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +16,7 @@ function Signin() {
 
   const handleSignInWithGoogle = () => {
     const provider = new GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
 
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -24,8 +28,9 @@ function Signin() {
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
         // ...
-        navigate('/');
-      }).catch((error) => {
+        navigate("/");
+      })
+      .catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -36,29 +41,31 @@ function Signin() {
         // ...
         console.error("Google Sign-in Error:", errorMessage);
       });
-  }
+  };
 
   const handleSignInWithEmailAndPassword = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in 
+        // Signed in
         const user = userCredential.user;
-        navigate('/');
+        navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.error("Email/Password Sign-in Error:", errorMessage);
       });
-  }
+  };
 
   return (
     <>
       <div className="mb-2 my-10 flex flex-col items-center justify-center">
         <form onSubmit={handleSignInWithEmailAndPassword}>
           <div className="flex flex-col max-w-xs md:flex-nowrap gap-4">
-            <h1 className="text-center mb-4 text-3xl font-bold">Welcome Back To Shop App</h1>
+            <h1 className="text-center mb-4 text-3xl font-bold">
+              Welcome Back To Shop App
+            </h1>
             <Input
               required
               value={email}
@@ -68,7 +75,7 @@ function Signin() {
               placeholder="Enter Your Email"
             />
             <Input
-               required
+              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
@@ -76,15 +83,16 @@ function Signin() {
               placeholder="Enter your password"
             />
           </div>
-         
         </form>
         <Button type="submit" className="my-5 justify-center" color="primary">
-            Sign In
-          </Button>
+          Sign In
+        </Button>
 
         <h1 className="text-center my-4">Or</h1>
 
-        <Button onClick={handleSignInWithGoogle} color="primary">Sign In with Google</Button>
+        <Button onClick={handleSignInWithGoogle} color="primary">
+          Sign In with Google
+        </Button>
       </div>
     </>
   );
